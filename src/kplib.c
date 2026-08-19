@@ -60,7 +60,10 @@ static unsigned short SSWAPIL (unsigned short a) { return((a>>8)+(a<<8)); }
 #if !defined(_WIN32) && !defined(__DOS__)
 #include <unistd.h>
 #include <dirent.h>
+/* Symbian's e32def.h already #defines __int64 to long long. */
+#ifndef __int64
 typedef long long __int64;
+#endif
 static inline int _lrotl (int i, int sh)
 	{ return((i>>(-sh))|(i<<sh)); }
 static inline int _filelength (int h)
