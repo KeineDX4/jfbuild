@@ -167,9 +167,9 @@ endif
 
 # Source-control version stamping
 ifneq (,$(findstring git version,$(shell git --version)))
-ENGINEOBJS+= $(SRC)/version-auto.$o
+ENGINEOBJS+= $(SRC)/build-version-auto.$o
 else
-ENGINEOBJS+= $(SRC)/version.$o
+ENGINEOBJS+= $(SRC)/build-version.$o
 endif
 
 UTILS=kextract$(EXESUFFIX) kgroup$(EXESUFFIX) klist$(EXESUFFIX) transpal$(EXESUFFIX) arttool$(EXESUFFIX)
@@ -257,8 +257,8 @@ veryclean: clean
 	-rm -f $(ENGINELIB) $(EDITORLIB) $(UTILS) $(BUILDUTILS)
 	-$(MAKE) -C kenbuild -f Makefile veryclean
 
-.PHONY: $(SRC)/version-auto.c
-$(SRC)/version-auto.c:
+.PHONY: $(SRC)/build-version-auto.c
+$(SRC)/build-version-auto.c:
 	printf "const char *build_version = \"%s\";\n" "$(shell git describe --always || echo git error)" > $@
 	echo "const char *build_date = __DATE__;" >> $@
 	echo "const char *build_time = __TIME__;" >> $@

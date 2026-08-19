@@ -8,7 +8,7 @@
 *~
 *.pdb
 /.vs
-/src/version-auto.c
+/src/build-version-auto.c
 /src/*_[fv]s.c
 
 /xcode/*.xcodeproj/*.mode1v3

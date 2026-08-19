@@ -1,5 +1,5 @@
 @ECHO OFF
-REM Generator for version-auto.c on Windows
+REM Generator for build-version-auto.c on Windows
 
 git.exe rev-parse HEAD >NUL 2>&1
 IF %ERRORLEVEL% EQU 0 (
